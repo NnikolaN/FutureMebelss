@@ -27,13 +27,13 @@ namespace FutureMebels
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DbContext>(options =>
+            services.AddDbContext<MebelsDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<DbContext>();
+            services.AddDefaultIdentity<Customer>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<MebelsDbContext>();
             services.AddControllersWithViews();
         }
 
@@ -65,7 +65,17 @@ namespace FutureMebels
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+            
             });
         }
+          
+       // public void ConfigureServices(IServiceCollection services)
+//{
+           //services.AddControllersWithViews();
+          //  services.AddDbContext<MebelsDbContext>(options =>
+          //  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+       // }
+
+        
     }
 }
