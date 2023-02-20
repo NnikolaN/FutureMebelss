@@ -1,0 +1,15 @@
+﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
+using System.Data;
+
+namespace FutureMebels.Data
+{
+    public class Customer:IdentityUser
+    {
+       public string FirstMidName { get; set; }
+       public string Adress { get; set; }
+      public ICollection<Articul> Articuls { set; get; }
+      
+        
+    }
+}
