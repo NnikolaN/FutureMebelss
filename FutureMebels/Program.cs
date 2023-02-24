@@ -22,5 +22,6 @@ namespace FutureMebels
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+      
     }
 }

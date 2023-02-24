@@ -68,14 +68,14 @@ namespace FutureMebels
             
             });
         }
-          
-       // public void ConfigureServices(IServiceCollection services)
-//{
-           //services.AddControllersWithViews();
-          //  services.AddDbContext<MebelsDbContext>(options =>
-          //  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-       // }
+       
+        // public void ConfigureServices(IServiceCollection services)
+        //{
+        //services.AddControllersWithViews();
+        //  services.AddDbContext<MebelsDbContext>(options =>
+        //  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        // }
 
-        
+
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\OneDrive\\Работен плот\\FutureMebels\\FutureMebels.csproj": {}
+    "C:\\Users\\PC\\OneDrive\\Работен плот\\12d proekt\\FutureMebels\\FutureMebels.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\OneDrive\\Работен плот\\FutureMebels\\FutureMebels.csproj": {
+    "C:\\Users\\PC\\OneDrive\\Работен плот\\12d proekt\\FutureMebels\\FutureMebels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\OneDrive\\Работен плот\\FutureMebels\\FutureMebels.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\OneDrive\\Работен плот\\12d proekt\\FutureMebels\\FutureMebels.csproj",
         "projectName": "FutureMebels",
-        "projectPath": "C:\\Users\\PC\\OneDrive\\Работен плот\\FutureMebels\\FutureMebels.csproj",
+        "projectPath": "C:\\Users\\PC\\OneDrive\\Работен плот\\12d proekt\\FutureMebels\\FutureMebels.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\OneDrive\\Работен плот\\FutureMebels\\obj\\",
+        "outputPath": "C:\\Users\\PC\\OneDrive\\Работен плот\\12d proekt\\FutureMebels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,6 +52,16 @@
               "target": "Package",
               "version": "[5.0.17, )"
             },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -59,6 +69,14 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[41.7.0, )"
+            },
+            "System.Diagnostics.Tools": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

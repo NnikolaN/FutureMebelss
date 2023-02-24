@@ -178,7 +178,6 @@ C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\n
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\net5.0\FutureMebels.dll
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\net5.0\ref\FutureMebels.dll
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\net5.0\FutureMebels.pdb
-C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\bin\Debug\net5.0\FutureMebels.StaticWebAssets.xml
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\bin\Debug\net5.0\appsettings.json
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\bin\Debug\net5.0\FutureMebels.exe
@@ -251,3 +250,4 @@ C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\n
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\net5.0\FutureMebels.Views.pdb
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\net5.0\FutureMebels.csproj.CopyComplete
 C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\obj\Debug\net5.0\FutureMebels.genruntimeconfig.cache
+C:\Users\PC\OneDrive\Работен плот\12d proekt\FutureMebels\bin\Debug\net5.0\Stripe.net.dll
