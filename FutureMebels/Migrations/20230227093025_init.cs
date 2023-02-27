@@ -195,18 +195,11 @@ namespace FutureMebels.Migrations
                     ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(18,6)", nullable: false),
                     RegisterOn = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CustomerId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Articuls", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Articuls_AspNetUsers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Articuls_Categories_CategoryId",
                         column: x => x.CategoryId,
@@ -229,6 +222,7 @@ namespace FutureMebels.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ArticulId = table.Column<int>(type: "int", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
+                    CustomersId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     RegisterOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -241,17 +235,18 @@ namespace FutureMebels.Migrations
                         principalTable: "Articuls",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_CustomersId",
+                        column: x => x.CustomersId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Articuls_CategoryId",
                 table: "Articuls",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Articuls_CustomerId",
-                table: "Articuls",
-                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Articuls_TypeId",
@@ -301,6 +296,11 @@ namespace FutureMebels.Migrations
                 name: "IX_Orders_ArticulId",
                 table: "Orders",
                 column: "ArticulId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_CustomersId",
+                table: "Orders",
+                column: "CustomersId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

@@ -7,9 +7,8 @@ namespace FutureMebels.Data
     public class Customer:IdentityUser
     {
        public string FirstMidName { get; set; }
-       public string Adress { get; set; }
-      public ICollection<Articul> Articuls { set; get; }
-      
+       public string Adress { get; set; }      
+        public ICollection<Order> Orders { set; get; }     
         
     }
 }

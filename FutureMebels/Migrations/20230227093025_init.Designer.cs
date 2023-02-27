@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FutureMebels.Migrations
 {
     [DbContext(typeof(MebelsDbContext))]
-    [Migration("20230227083117_init")]
+    [Migration("20230227093025_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,9 +33,6 @@ namespace FutureMebels.Migrations
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CustomerId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -61,8 +58,6 @@ namespace FutureMebels.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("CustomerId");
 
                     b.HasIndex("TypeId");
 
@@ -306,6 +301,9 @@ namespace FutureMebels.Migrations
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CustomersId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
@@ -315,6 +313,8 @@ namespace FutureMebels.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ArticulId");
+
+                    b.HasIndex("CustomersId");
 
                     b.ToTable("Orders");
                 });
@@ -341,10 +341,6 @@ namespace FutureMebels.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("FutureMebels.Data.Customer", null)
-                        .WithMany("Articuls")
-                        .HasForeignKey("CustomerId");
 
                     b.HasOne("Type", "Types")
                         .WithMany("Articuls")
@@ -416,7 +412,13 @@ namespace FutureMebels.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FutureMebels.Data.Customer", "Customers")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomersId");
+
                     b.Navigation("Articuls");
+
+                    b.Navigation("Customers");
                 });
 
             modelBuilder.Entity("FutureMebels.Data.Articul", b =>
@@ -426,7 +428,7 @@ namespace FutureMebels.Migrations
 
             modelBuilder.Entity("FutureMebels.Data.Customer", b =>
                 {
-                    b.Navigation("Articuls");
+                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Type", b =>

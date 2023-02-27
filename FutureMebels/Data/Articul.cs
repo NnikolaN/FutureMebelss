@@ -15,6 +15,7 @@ namespace FutureMebels.Data
         public int CategoryId { get; set; }
         public Category Categories { get; set; }
 
+
         public string NameModel { get; set; }
 
        [Column(TypeName = "decimal(18, 6)")]
@@ -33,6 +34,7 @@ namespace FutureMebels.Data
         public DateTime RegisterOn { get; set; }
 
         public string Description { get; set; }
+
         public ICollection<Order> Orders { get; set; }
 
     }

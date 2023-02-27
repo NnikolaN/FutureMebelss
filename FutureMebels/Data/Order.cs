@@ -11,6 +11,7 @@ public class Order
     public Articul Articuls{ get; set; }
 
     public int CustomerId { get; set; }
+    public Customer Customers { get; set; }
 
     public int Quantity { get; set; }
 
