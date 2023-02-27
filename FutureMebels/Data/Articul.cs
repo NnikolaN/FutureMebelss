@@ -24,10 +24,11 @@ namespace FutureMebels.Data
 
         public string ImgUrl { get; set; }
 
-       
-        public decimal Price { get; set; }
 
         [Column(TypeName = "decimal(18, 6)")]
+        public decimal Price { get; set; }
+
+       
 
         public DateTime RegisterOn { get; set; }
 

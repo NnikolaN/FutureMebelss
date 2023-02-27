@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FutureMebels.Migrations
 {
     [DbContext(typeof(MebelsDbContext))]
-    [Migration("20230224145712_Initial")]
-    partial class Initial
+    [Migration("20230227083117_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,10 +31,10 @@ namespace FutureMebels.Migrations
                     b.Property<string>("Applied")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("CustomersId")
+                    b.Property<string>("CustomerId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Description")
@@ -46,26 +46,23 @@ namespace FutureMebels.Migrations
                     b.Property<string>("NameModel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("OrdersId")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,6)");
 
                     b.Property<DateTime>("RegisterOn")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Size")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,6)");
 
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomersId");
+                    b.HasIndex("CategoryId");
 
-                    b.HasIndex("OrdersId");
+                    b.HasIndex("CustomerId");
 
                     b.HasIndex("TypeId");
 
@@ -317,6 +314,8 @@ namespace FutureMebels.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ArticulId");
+
                     b.ToTable("Orders");
                 });
 
@@ -337,13 +336,15 @@ namespace FutureMebels.Migrations
 
             modelBuilder.Entity("FutureMebels.Data.Articul", b =>
                 {
-                    b.HasOne("FutureMebels.Data.Customer", "Customers")
-                        .WithMany("Articuls")
-                        .HasForeignKey("CustomersId");
+                    b.HasOne("FutureMebels.Data.Category", "Categories")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("Order", "Orders")
+                    b.HasOne("FutureMebels.Data.Customer", null)
                         .WithMany("Articuls")
-                        .HasForeignKey("OrdersId");
+                        .HasForeignKey("CustomerId");
 
                     b.HasOne("Type", "Types")
                         .WithMany("Articuls")
@@ -351,9 +352,7 @@ namespace FutureMebels.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Customers");
-
-                    b.Navigation("Orders");
+                    b.Navigation("Categories");
 
                     b.Navigation("Types");
                 });
@@ -409,12 +408,23 @@ namespace FutureMebels.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("FutureMebels.Data.Customer", b =>
+            modelBuilder.Entity("Order", b =>
                 {
+                    b.HasOne("FutureMebels.Data.Articul", "Articuls")
+                        .WithMany("Orders")
+                        .HasForeignKey("ArticulId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Articuls");
                 });
 
-            modelBuilder.Entity("Order", b =>
+            modelBuilder.Entity("FutureMebels.Data.Articul", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("FutureMebels.Data.Customer", b =>
                 {
                     b.Navigation("Articuls");
                 });

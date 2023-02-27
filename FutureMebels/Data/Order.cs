@@ -8,7 +8,7 @@ public class Order
 
     public int ArticulId { get; set; }
 
-    public ICollection<Articul>Articuls{ get; set; }
+    public Articul Articuls{ get; set; }
 
     public int CustomerId { get; set; }
 
